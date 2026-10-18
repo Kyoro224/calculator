@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6LJ703E8BW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6LJ703E8BW"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  gtag('config', 'G-6LJ703E8BW');
-</script>
+      gtag('config', 'G-6LJ703E8BW');
+    </script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +52,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 16px;
         }
 
         h1 {
@@ -62,25 +61,43 @@
             color: var(--text-color);
         }
 
+        /* 縦スクロールで見やすくまとめるエリア */
+        .policy-content {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-height: 65vh;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .policy-content::-webkit-scrollbar {
+            width: 4px;
+        }
+        .policy-content::-webkit-scrollbar-thumb {
+            background-color: var(--border-color);
+            border-radius: 4px;
+        }
+
         .section-card {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 6px;
             background-color: #f9fafb;
             border: 1px solid var(--border-color);
             border-radius: 14px;
-            padding: 16px;
+            padding: 14px 16px;
         }
 
         .section-title {
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
             color: var(--primary-color);
         }
 
         .section-desc {
-            font-size: 0.85rem;
-            color: var(--text-color);
+            font-size: 0.8rem;
+            color: var(--text-muted);
             line-height: 1.6;
         }
 
@@ -97,7 +114,7 @@
             text-align: center;
             text-decoration: none;
             transition: background-color 0.2s;
-            margin-top: 10px;
+            margin-top: 4px;
         }
 
         .back-btn:hover {
@@ -116,32 +133,56 @@
     <div class="container">
         <h1>プライバシーポリシー</h1>
         
-        <div class="section-card">
-            <div class="section-title">1. アクセス解析ツールについて</div>
-            <div class="section-desc">
-                当アプリ（シンプル電卓）では、利用状況の把握やサービス改善を目的として、Googleによるアクセス解析ツール<b>「Google Analytics」</b>を利用しています。<br><br>
-                Google Analyticsは、トラフィックデータの収集のためにCookie（クッキー）を使用しています。このデータは匿名で収集されており、個人を特定するものではありません。
+        <div class="policy-content">
+            <div class="section-card">
+                <div class="section-title">1. 個人情報の取り扱いについて</div>
+                <div class="section-desc">
+                    当アプリ（シンプル電卓）では、ユーザーのメールアドレス等の個人情報を直接収集・保有することはいたしません。
+                </div>
             </div>
-        </div>
 
-        <div class="section-card">
-            <div class="section-title">2. Cookieの無効化について</div>
-            <div class="section-desc">
-                お使いのブラウザの設定でCookieを無効にすることにより、データ収集を拒否することができます。詳細は<a href="https://marketingplatform.google.com/about/analytics/terms/jp/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">Google Analytics利用規約</a>をご確認ください。
+            <div class="section-card">
+                <div class="section-title">2. アクセス解析ツールについて</div>
+                <div class="section-desc">
+                    当アプリでは、利用状況の把握やサービス改善を目的として、Googleによるアクセス解析ツール<b>「Google Analytics（GA4）」</b>を利用しています。<br><br>
+                    Google Analyticsは、トラフィックデータの収集のためにCookie（クッキー）を使用しています。このデータは匿名で収集されており、個人を特定するものではありません。
+                </div>
             </div>
-        </div>
 
-        <div class="section-card">
-            <div class="section-title">3. 免責事項</div>
-            <div class="section-desc">
-                当アプリの計算結果や、外部サイト（noteなど）への埋め込み動作等について、開発者は一切の責任を負いかねます。あらかじめご了承ください。
+            <div class="section-card">
+                <div class="section-title">3. Cookieの無効化について</div>
+                <div class="section-desc">
+                    お使いのブラウザの設定でCookieを無効にすることにより、データ収集を拒否することができます。詳細は<a href="https://marketingplatform.google.com/about/analytics/terms/jp/" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color);">Google Analytics利用規約</a>をご確認ください。
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-title">4. 免責事項</div>
+                <div class="section-desc">
+                    当アプリの計算結果の正確性、または外部サイト（noteなど）への埋め込み動作等について、可能な限り動作確認を行っておりますが、その完全性を保証するものではありません。<br><br>
+                    当アプリの利用によって生じた損害やトラブル等について、開発者は一切の責任を負いかねますのであらかじめご了承ください。
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-title">5. 著作権について</div>
+                <div class="section-desc">
+                    当アプリに掲載されているデザイン、構成、およびソースコード等の著作権は開発者に帰属します。無断転載や再配布等は禁止しております。
+                </div>
+            </div>
+
+            <div class="section-card">
+                <div class="section-title">6. 感想・ご意見</div>
+                <div class="section-desc">
+                    当サイトに関するご意見、ご感想、匿名でのご質問は、開発者プロフィールに掲載されているマシュマロ（質問箱）よりお寄せください。
+                </div>
             </div>
         </div>
 
         <a href="calculator.html" class="back-btn">電卓に戻る</a>
 
         <div class="footer-note">
-            制定日：2026年10月17日
+            制定日：2026年10月18日
         </div>
     </div>
 
