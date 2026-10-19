@@ -170,12 +170,12 @@
             <button class="btn function" onclick="clearDisplay()">AC</button>
             <button class="btn function" onclick="deleteChar()">←</button>
             <button class="btn function" onclick="appendValue('%')">%</button>
-            <button class="btn operator" onclick="appendValue('/')">÷</button>
+            <button class="btn operator" onclick="appendValue('÷')">÷</button>
             
             <button class="btn" onclick="appendValue('7')">7</button>
             <button class="btn" onclick="appendValue('8')">8</button>
             <button class="btn" onclick="appendValue('9')">9</button>
-            <button class="btn operator" onclick="appendValue('*')">×</button>
+            <button class="btn operator" onclick="appendValue('×')">×</button>
             
             <button class="btn" onclick="appendValue('4')">4</button>
             <button class="btn" onclick="appendValue('5')">5</button>
@@ -217,7 +217,12 @@
 
         function calculate() {
             try {
-                let expression = display.value.replace(/%/g, '/100');
+                // 画面上の「×」と「÷」をJavaScriptが計算できる「*」と「/」に置き換える
+                let expression = display.value
+                    .replace(/×/g, '*')
+                    .replace(/÷/g, '/')
+                    .replace(/%/g, '/100');
+                
                 display.value = eval(expression);
             } catch (error) {
                 display.value = 'エラー';
