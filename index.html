@@ -16,8 +16,6 @@
     
     <!-- ▼ サイトアイコン（ファビコン）の追加 ▼ -->
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <!-- ※画像がPNG形式の場合は以下のように変更してください -->
-    <!-- <link rel="icon" href="icon.png" type="image/png"> -->
 
     <title>埋め込める！シンプル電卓</title>
     <meta name="description" content="ブログやWebサイトに埋め込みが可能なシンプルで使いやすい電卓です。">
@@ -30,20 +28,26 @@
     <style>
         :root {
             --primary-color: #6577B3;
-            --primary-hover: #54649b;
+            --primary-hover: #6577B3;
+            --primary-active: #485587; /* ▼ 演算子ボタンを押したときの濃い色 */
             --bg-color: #f9fafb;
             --card-bg: #ffffff;
             --text-color: #1f2937;
             --text-muted: #6b7280;
             --border-color: #e5e7eb;
             --btn-bg: #f3f4f6;
-            --btn-hover: #e5e7eb;
+            --btn-hover: #f3f4f6;
+            --btn-active: #d1d5db;     /* ▼ 通常ボタンを押したときの濃い色 */
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
         }
 
         body {
@@ -110,6 +114,8 @@
             outline: none;
             color: var(--text-color);
             box-sizing: border-box;
+            -webkit-user-select: text;
+            user-select: text;
         }
 
         .buttons {
@@ -126,7 +132,8 @@
             border: 1px solid var(--border-color);
             border-radius: 12px;
             cursor: pointer;
-            transition: background-color 0.2s;
+            /* 変化をなめらかにしつつ、アクティブ時は即座に反応させる */
+            transition: background-color 0.1s, transform 0.1s;
             color: var(--text-color);
             font-weight: 500;
             display: flex;
@@ -136,6 +143,12 @@
 
         .btn:hover {
             background-color: var(--btn-hover);
+        }
+
+        /* ▼ 通常ボタンを「押したとき」のアクティブ状態（沈み込み＋色変化） */
+        .btn:active {
+            background-color: var(--btn-active);
+            transform: translateY(2px);
         }
 
         .btn-zero {
@@ -154,13 +167,25 @@
             background-color: var(--primary-hover);
         }
 
+        /* ▼ 演算子（=や+など）ボタンを「押したとき」のアクティブ状態 */
+        .btn.operator:active {
+            background-color: var(--primary-active);
+            transform: translateY(2px);
+        }
+
         .btn.function {
             background-color: #e5e7eb;
             color: #4b5563;
         }
 
         .btn.function:hover {
-            background-color: #d1d5db;
+            background-color: #e5e7eb;
+        }
+
+        /* ▼ 機能ボタン（ACなど）を「押したとき」のアクティブ状態 */
+        .btn.function:active {
+            background-color: #cbd5e1;
+            transform: translateY(2px);
         }
     </style>
 </head>
